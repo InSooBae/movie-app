@@ -6,8 +6,7 @@ import { a, b, c, d } from './Stack';
 
 const Tabs = createMaterialBottomTabNavigator();
 
-export default ({ navigation, route }) => {
-  console.log(navigation, route);
+export default () => {
   return (
     <Tabs.Navigator
       activeColor="#f0edf6"
