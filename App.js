@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Asset } from 'expo-asset';
 import { Ionicons } from '@expo/vector-icons';
 import Stack from './navigation/Stack';
-
+import { Provider as PaperProvider } from 'react-native-paper';
 const cacheImages = images =>
   images.map(image => {
     if (typeof image === 'string') {
@@ -32,9 +32,11 @@ export default function App() {
   };
   const onFinish = () => setIsReady(true);
   return isReady ? (
-    <NavigationContainer>
-      <Stack />
-    </NavigationContainer>
+    <PaperProvider>
+      <NavigationContainer>
+        <Stack />
+      </NavigationContainer>
+    </PaperProvider>
   ) : (
     <AppLoading
       startAsync={loadAssets}
