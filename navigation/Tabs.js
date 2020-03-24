@@ -44,7 +44,7 @@ export default () => {
       />
       <Tabs.Screen
         options={{
-          tabBarColor: '#4e2465',
+          tabBarColor: '#6e2465',
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'}

@@ -8,7 +8,7 @@ export default ({ movies, shows, keyword, onChange, onSubmit }) => (
   <ScrollContainer
     refreshFn={onSubmit}
     loading={false}
-    backgroundColor={'#4e2465'}
+    backgroundColor={'#6e2465'}
     contentContainerStyle={{
       paddingTop: 10
     }}
@@ -28,7 +28,7 @@ export default ({ movies, shows, keyword, onChange, onSubmit }) => (
             votes={movie.vote_average}
             title={movie.title}
             poster={movie.poster_path || movie.backdrop_path}
-            backgroundColor={'#4e2465'}
+            backgroundColor={'#6e2465'}
           />
         ))}
       </HorizontalSlider>
@@ -43,7 +43,7 @@ export default ({ movies, shows, keyword, onChange, onSubmit }) => (
             votes={show.vote_average}
             title={show.name}
             poster={show.poster_path}
-            backgroundColor={'#4e2465'}
+            backgroundColor={'#6e2465'}
           />
         ))}
       </HorizontalSlider>

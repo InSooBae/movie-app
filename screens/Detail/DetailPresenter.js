@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { ActivityIndicator } from 'react-native-paper';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ActivityIndicator, Divider } from 'react-native-paper';
 import Link from '../../components/Detail/Link';
 import { formatDate } from '../../utils';
 import ScrollContainer from '../../components/ScrollContainer';
@@ -51,6 +50,7 @@ const DataName = styled.Text`
   color: white;
   opacity: 0.8;
   font-weight: 800;
+  font-size: 17px;
   margin-bottom: 15px;
 `;
 
@@ -72,16 +72,20 @@ export default ({ openBrowser, result, loading }) => (
         <Container>
           <Poster url={result.poster} />
           <Info>
+            <Divider />
             <Title>{result.title}</Title>
             {result.votes ? <Votes votes={result.votes} /> : null}
+            <Divider />
           </Info>
         </Container>
       </Header>
       <Data>
         {result.overview ? (
           <>
+            <Divider />
             <DataName>Overview</DataName>
             <DataValue>{result.overview}</DataValue>
+            <Divider />
           </>
         ) : null}
         {loading ? (
@@ -89,56 +93,71 @@ export default ({ openBrowser, result, loading }) => (
         ) : null}
         {result.spoken_languages ? (
           <>
+            <Divider />
             <DataName>Languages</DataName>
             <DataValue>
               {result.spoken_languages.map(l => `${l.name} `)}
             </DataValue>
+            <Divider />
           </>
         ) : null}
         {result.release_date ? (
           <>
+            <Divider />
             <DataName>Release Date</DataName>
             <DataValue>{formatDate(result.release_date)}</DataValue>
+            <Divider />
           </>
         ) : null}
         {result.status ? (
           <>
+            <Divider />
             <DataName>Status</DataName>
             <DataValue>{result.status}</DataValue>
+            <Divider />
           </>
         ) : null}
         {result.runtime ? (
           <>
+            <Divider />
             <DataName>Runtime</DataName>
             <DataValue>{result.runtime} minutes</DataValue>
+            <Divider />
           </>
         ) : null}
         {result.first_air_date ? (
           <>
+            <Divider />
             <DataName>First Air Date</DataName>
             <DataValue>{formatDate(result.first_air_date)}</DataValue>
+            <Divider />
           </>
         ) : null}
         {result.genres ? (
           <>
+            <Divider />
             <DataName>Genres</DataName>
             <DataValue>
               {result.genres.map((g, index) =>
                 index + 1 === result.genres.length ? g.name : `${g.name}, `
               )}
             </DataValue>
+            <Divider />
           </>
         ) : null}
         {result.number_of_episodes ? (
           <>
+            <Divider />
             <DataName>Seasons / Episodes</DataName>
             <DataValue>
               {result.number_of_seasons} / {result.number_of_episodes}
             </DataValue>
+            <Divider />
           </>
         ) : null}
         {result.imdb_id ? (
           <>
+            <Divider />
             <DataName>Links</DataName>
             <Link
               text={'IMDB Page'}
@@ -147,10 +166,12 @@ export default ({ openBrowser, result, loading }) => (
                 openBrowser(`https://www.imdb.com/title/${result.imdb_id}`)
               }
             />
+            <Divider />
           </>
         ) : null}
         {result.videos.results?.length > 0 ? (
           <>
+            <Divider />
             <DataName>Videos</DataName>
             {result.videos.results.map(video => (
               <Link
@@ -162,6 +183,7 @@ export default ({ openBrowser, result, loading }) => (
                 }
               />
             ))}
+            <Divider />
           </>
         ) : null}
       </Data>

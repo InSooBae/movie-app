@@ -43,9 +43,9 @@ export const c = () => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#4e2465',
-        borderBottomColor: '#4e2465',
-        shadowColor: '#4e2465'
+        backgroundColor: '#6e2465',
+        borderBottomColor: '#6e2465',
+        shadowColor: '#6e2465'
       },
       headerTintColor: 'white',
       headerBackTitleVisible: false
