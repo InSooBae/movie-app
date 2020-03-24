@@ -29,6 +29,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
       backgroundColor: '#1e2465'
     }}
     contentContainerStyle={{
+      flex: loading ? 1 : 'auto',
       justifyContent: loading ? 'center' : 'flex-start'
     }}
   >
