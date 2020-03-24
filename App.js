@@ -2,12 +2,13 @@ import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
-import { Image } from 'react-native';
+import { Image, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Asset } from 'expo-asset';
 import { Ionicons } from '@expo/vector-icons';
 import Stack from './navigation/Stack';
 import { Provider as PaperProvider } from 'react-native-paper';
+import Tabs from './navigation/Tabs';
 const cacheImages = images =>
   images.map(image => {
     if (typeof image === 'string') {
@@ -34,8 +35,9 @@ export default function App() {
   return isReady ? (
     <PaperProvider>
       <NavigationContainer>
-        <Stack />
+        <Tabs />
       </NavigationContainer>
+      <StatusBar barStyle="light-content" />
     </PaperProvider>
   ) : (
     <AppLoading
