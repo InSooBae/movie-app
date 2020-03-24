@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 import Poster from './Poster';
 import Votes from './Votes';
 import { trimText } from '../utils';
@@ -17,15 +18,35 @@ const Title = styled.Text`
   margin: 10px 0px 5px 0px;
 `;
 
-const Vertical = ({ id, poster, title, votes }) => (
-  <TouchableOpacity>
-    <Container>
-      <Poster url={poster} />
-      <Title>{trimText(title, 10)}</Title>
-      {votes > 0 && <Votes votes={votes} />}
-    </Container>
-  </TouchableOpacity>
-);
+const Vertical = ({
+  isTv = false,
+  id,
+  poster,
+  title,
+  votes,
+  backgroundColor
+}) => {
+  const navigation = useNavigation();
+  const goToDetai = () => {
+    navigation.navigate('Detail', {
+      isTv,
+      id,
+      title,
+      poster,
+      votes,
+      backgroundColor
+    });
+  };
+  return (
+    <TouchableOpacity onPress={goToDetai}>
+      <Container>
+        <Poster url={poster} />
+        <Title>{trimText(title, 10)}</Title>
+        {votes > 0 && <Votes votes={votes} />}
+      </Container>
+    </TouchableOpacity>
+  );
+};
 
 Vertical.propTypes = {
   id: PropTypes.number.isRequired,

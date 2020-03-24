@@ -12,7 +12,7 @@ export default () => {
       activeColor="#f0edf6"
       inactiveColor="#3e2465"
       barStyle={{ backgroundColor: '#694fad' }}
-      initialRouteName="TV"
+      initialRouteName="Movies"
     >
       <Tabs.Screen
         options={{

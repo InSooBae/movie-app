@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { Button } from 'react-native-paper';
 import { Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Poster from '../Poster';
 import Votes from '../Votes';
 import { trimText } from '../../utils';
@@ -53,33 +54,48 @@ const Slide = ({
   votes,
   overview,
   poster,
-  navigation
-}) => (
-  <Container>
-    <BG source={{ uri: apiImage(backgroundImage) }} />
-    <Content>
-      <Poster url={poster} />
-      <Data>
-        <Title>{trimText(title, 30)}</Title>
-        <VotesContainer>
-          <Votes votes={votes} />
-        </VotesContainer>
-        <Overview>{trimText(overview, 80)}</Overview>
-        <Button
-          style={Platform.OS === 'web' ? { marginTop: 15 } : { marginTop: 10 }}
-          color="#e74c3c"
-          theme={{ roundness: 3 }}
-          mode="contained"
-          uppercase={false}
-          compact={true}
-          onPress={() => console.log('Pressed')}
-        >
-          View details
-        </Button>
-      </Data>
-    </Content>
-  </Container>
-);
+  backgroundColor
+}) => {
+  const navigation = useNavigation();
+  const goToDetail = () =>
+    navigation.navigate('Detail', {
+      id,
+      title,
+      backgroundImage,
+      votes,
+      overview,
+      poster,
+      backgroundColor
+    });
+  return (
+    <Container>
+      <BG source={{ uri: apiImage(backgroundImage) }} />
+      <Content>
+        <Poster url={poster} />
+        <Data>
+          <Title>{trimText(title, 30)}</Title>
+          <VotesContainer>
+            <Votes votes={votes} />
+          </VotesContainer>
+          <Overview>{trimText(overview, 80)}</Overview>
+          <Button
+            style={
+              Platform.OS === 'web' ? { marginTop: 15 } : { marginTop: 10 }
+            }
+            color="#e74c3c"
+            theme={{ roundness: 3 }}
+            mode="contained"
+            uppercase={false}
+            compact={true}
+            onPress={goToDetail}
+          >
+            View details
+          </Button>
+        </Data>
+      </Content>
+    </Container>
+  );
+};
 
 Slide.propTypes = {
   id: PropTypes.number.isRequired,

@@ -10,39 +10,49 @@ const Container = styled.View`
   margin-top: 30px;
 `;
 
-export default ({ loading, popular, topRated, today }) => (
-  <ScrollContainer loading={loading} backgroundColor={'#3e2465'}>
+export default ({ refreshFn, loading, popular, topRated, today }) => (
+  <ScrollContainer
+    refreshFn={refreshFn}
+    loading={loading}
+    backgroundColor={'#3e2465'}
+  >
     <Container>
       <HorizontalSlider title="Popular Shows">
         {popular.map(show => (
           <Vertical
+            isTv={true}
             id={show.id}
             key={show.id}
             poster={show.poster_path}
             title={show.name}
             votes={show.vote_average}
+            backgroundColor={'#3e2465'}
           />
         ))}
       </HorizontalSlider>
       <HorizontalSlider title="Top Rated">
         {topRated.map(show => (
           <Vertical
+            isTv={true}
             id={show.id}
             key={show.id}
             poster={show.poster_path}
             title={show.name}
             votes={show.vote_average}
+            backgroundColor={'#3e2465'}
           />
         ))}
       </HorizontalSlider>
       <List title="Airing Today">
         {today.map(show => (
           <Horizontal
+            isTv={true}
             key={show.id}
             id={show.id}
             title={show.name}
             poster={show.poster_path}
             overview={show.overview}
+            backgroundColor={'#3e2465'}
           />
         ))}
       </List>

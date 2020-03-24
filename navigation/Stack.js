@@ -36,6 +36,7 @@ export const b = () => (
     }}
   >
     <Stack.Screen name="TV" component={Tv} />
+    <Stack.Screen name="Detail" component={Detail} />
   </Stack.Navigator>
 );
 export const c = () => (
@@ -51,6 +52,7 @@ export const c = () => (
     }}
   >
     <Stack.Screen name="Search" component={Search} />
+    <Stack.Screen name="Detail" component={Detail} />
   </Stack.Navigator>
 );
 export const d = () => (
@@ -66,5 +68,6 @@ export const d = () => (
     }}
   >
     <Stack.Screen name="Discovery" component={Favs} />
+    <Stack.Screen name="Detail" component={Detail} />
   </Stack.Navigator>
 );

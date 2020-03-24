@@ -21,8 +21,12 @@ const SliderContainer = styled.View`
 
 const Container = styled.View``;
 
-export default ({ loading, nowPlaying, popular, upcoming }) => (
-  <ScrollContainer loading={loading} backgroundColor={'#1e2465'}>
+export default ({ refreshFn, loading, nowPlaying, popular, upcoming }) => (
+  <ScrollContainer
+    refreshFn={refreshFn}
+    loading={loading}
+    backgroundColor={'#1e2465'}
+  >
     <>
       <SliderContainer>
         <Swiper
@@ -59,6 +63,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
               votes={movie.vote_average}
               backgroundImage={movie.backdrop_path}
               poster={movie.poster_path}
+              backgroundColor={'#1e2465'}
             />
           ))}
         </Swiper>
@@ -72,6 +77,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
               poster={movie.poster_path}
               title={movie.title}
               votes={movie.vote_average}
+              backgroundColor={'#1e2465'}
             />
           ))}
         </HorizontalSlider>
@@ -85,6 +91,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
               releaseDate={movie.release_date}
               poster={movie.poster_path}
               overview={movie.overview}
+              backgroundColor={'#1e2465'}
             />
           ))}
         </List>

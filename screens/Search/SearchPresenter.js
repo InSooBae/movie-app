@@ -1,16 +1,14 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import Input from '../../components/Search/Input';
 import HorizontalSlider from '../../components/HorizontalSlider';
-import Horizontal from '../../components/Horizontal';
 import Vertical from '../../components/Vertical';
-
-const Container = styled.ScrollView`
-  background-color: #4e2465;
-`;
+import ScrollContainer from '../../components/ScrollContainer';
 
 export default ({ movies, shows, keyword, onChange, onSubmit }) => (
-  <Container
+  <ScrollContainer
+    refreshFn={onSubmit}
+    loading={false}
+    backgroundColor={'#4e2465'}
     contentContainerStyle={{
       paddingTop: 10
     }}
@@ -30,6 +28,7 @@ export default ({ movies, shows, keyword, onChange, onSubmit }) => (
             votes={movie.vote_average}
             title={movie.title}
             poster={movie.poster_path || movie.backdrop_path}
+            backgroundColor={'#4e2465'}
           />
         ))}
       </HorizontalSlider>
@@ -38,14 +37,16 @@ export default ({ movies, shows, keyword, onChange, onSubmit }) => (
       <HorizontalSlider title={'TV Results'}>
         {shows.map(show => (
           <Vertical
+            isTv={true}
             key={show.id}
             id={show.id}
             votes={show.vote_average}
             title={show.name}
             poster={show.poster_path}
+            backgroundColor={'#4e2465'}
           />
         ))}
       </HorizontalSlider>
     )}
-  </Container>
+  </ScrollContainer>
 );
