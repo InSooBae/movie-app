@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { Button } from 'react-native-paper';
-import Poster from '../Poster';
-import { apiImage } from '../../api';
-import Votes from '../Votes';
 import { Platform } from 'react-native';
+import Poster from '../Poster';
+import Votes from '../Votes';
+import { trimText } from '../../utils';
+import { apiImage } from '../../api';
 const Container = styled.View`
   height: 100%;
   width: 100%;
@@ -57,13 +58,13 @@ const Slide = ({
   <Container>
     <BG source={{ uri: apiImage(backgroundImage) }} />
     <Content>
-      <Poster url={apiImage(poster)} />
+      <Poster url={poster} />
       <Data>
-        <Title>{title.length > 30 ? `${title.slice(0, 30)}...` : title}</Title>
+        <Title>{trimText(title, 30)}</Title>
         <VotesContainer>
           <Votes votes={votes} />
         </VotesContainer>
-        <Overview>{overview.slice(0, 110)}...</Overview>
+        <Overview>{trimText(overview, 110)}</Overview>
         <Button
           style={Platform.OS === 'web' ? { marginTop: 15 } : { marginTop: 5 }}
           color="#e74c3c"
@@ -85,7 +86,8 @@ Slide.propTypes = {
   title: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
-  overview: PropTypes.string.isRequired
+  overview: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired
 };
 
 export default Slide;
