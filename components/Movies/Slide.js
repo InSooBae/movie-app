@@ -64,9 +64,9 @@ const Slide = ({
         <VotesContainer>
           <Votes votes={votes} />
         </VotesContainer>
-        <Overview>{trimText(overview, 110)}</Overview>
+        <Overview>{trimText(overview, 80)}</Overview>
         <Button
-          style={Platform.OS === 'web' ? { marginTop: 15 } : { marginTop: 5 }}
+          style={Platform.OS === 'web' ? { marginTop: 15 } : { marginTop: 10 }}
           color="#e74c3c"
           theme={{ roundness: 3 }}
           mode="contained"
