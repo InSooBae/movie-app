@@ -57,7 +57,7 @@ export default () => {
       />
       <Tabs.Screen
         options={{
-          tabBarColor: '#9e2465',
+          tabBarColor: '#be2465',
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
@@ -66,7 +66,7 @@ export default () => {
             />
           )
         }}
-        name="Favorites"
+        name="Discovery"
         component={d}
       />
     </Tabs.Navigator>

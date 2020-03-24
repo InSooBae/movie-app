@@ -57,14 +57,14 @@ export const d = () => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#9e2465',
-        borderBottomColor: '#9e2465',
-        shadowColor: '#9e2465'
+        backgroundColor: '#be2465',
+        borderBottomColor: '#be2465',
+        shadowColor: '#be2465'
       },
       headerTintColor: 'white',
       headerBackTitleVisible: false
     }}
   >
-    <Stack.Screen name="Favorites" component={Favs} />
+    <Stack.Screen name="Discovery" component={Favs} />
   </Stack.Navigator>
 );
