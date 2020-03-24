@@ -11,9 +11,9 @@ export const a = () => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#2e2465',
-        borderBottomColor: '#2e2465',
-        shadowColor: '#2e2465'
+        backgroundColor: '#1e2465',
+        borderBottomColor: '#1e2465',
+        shadowColor: '#1e2465'
       },
       headerTintColor: 'white',
       headerBackTitleVisible: false
@@ -57,9 +57,9 @@ export const d = () => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#5e2465',
-        borderBottomColor: '#5e2465',
-        shadowColor: '#5e2465'
+        backgroundColor: '#9e2465',
+        borderBottomColor: '#9e2465',
+        shadowColor: '#9e2465'
       },
       headerTintColor: 'white',
       headerBackTitleVisible: false
