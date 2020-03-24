@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
+import { Button } from 'react-native-paper';
 import Poster from '../Poster';
 import { apiImage } from '../../api';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Button } from 'react-native-paper';
+import Votes from '../Votes';
+import { Platform } from 'react-native';
 const Container = styled.View`
   height: 100%;
   width: 100%;
@@ -36,11 +37,7 @@ const Title = styled.Text`
   margin-bottom: 10px;
 `;
 
-const Votes = styled.Text`
-  color: rgb(220, 220, 220);
-  margin-bottom: 7px;
-  font-size: 12px;
-`;
+const VotesContainer = styled.View``;
 
 const Overview = styled.Text`
   color: rgb(220, 220, 220);
@@ -48,21 +45,32 @@ const Overview = styled.Text`
   font-weight: 500;
 `;
 
-const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
+const Slide = ({
+  id,
+  title,
+  backgroundImage,
+  votes,
+  overview,
+  poster,
+  navigation
+}) => (
   <Container>
     <BG source={{ uri: apiImage(backgroundImage) }} />
     <Content>
       <Poster url={apiImage(poster)} />
       <Data>
-        <Title>{title.slice(0, 30)}</Title>
-        <Votes>⭐️ {votes} / 10</Votes>
-        <Overview>{overview.slice(0, 120)}</Overview>
+        <Title>{title.length > 30 ? `${title.slice(0, 30)}...` : title}</Title>
+        <VotesContainer>
+          <Votes votes={votes} />
+        </VotesContainer>
+        <Overview>{overview.slice(0, 110)}...</Overview>
         <Button
-          style={{ marginTop: 10, marginBottom: 5 }}
+          style={Platform.OS === 'web' ? { marginTop: 15 } : { marginTop: 5 }}
           color="#e74c3c"
-          theme={{ roundness: 10 }}
+          theme={{ roundness: 3 }}
           mode="contained"
           uppercase={false}
+          compact={true}
           onPress={() => console.log('Pressed')}
         >
           View details
