@@ -8,8 +8,8 @@ self.__precacheManifest = [
     "url": "/movie-app/static/js/runtime~app.9c991fca.js"
   },
   {
-    "revision": "3edc0fb862c9a76842a6",
-    "url": "/movie-app/static/js/2.1dea3a64.chunk.js"
+    "revision": "cbea1a6d581600e6249e",
+    "url": "/movie-app/static/js/2.1206bc8a.chunk.js"
   },
   {
     "revision": "b06871f281fee6b241d60582ae9369b9",
@@ -60,16 +60,16 @@ self.__precacheManifest = [
     "url": "/movie-app/./fonts/SimpleLineIcons.ttf"
   },
   {
-    "revision": "d0c694b562b2208635f250762cd7fc79",
-    "url": "/movie-app/serve.json"
+    "revision": "7a7bc7ead25db795e58b336f04d2624c",
+    "url": "/movie-app/favicon.ico"
   },
   {
     "revision": "48c7ed4e7da9792af288a60d7242d615",
     "url": "/movie-app/expo-service-worker.js"
   },
   {
-    "revision": "7a7bc7ead25db795e58b336f04d2624c",
-    "url": "/movie-app/favicon.ico"
+    "revision": "d0c694b562b2208635f250762cd7fc79",
+    "url": "/movie-app/serve.json"
   },
   {
     "revision": "efbfcc4df9bc53d6904ce0868efc600f",
@@ -136,7 +136,7 @@ self.__precacheManifest = [
     "url": "/movie-app/apple/splash/icon_828x1792.png"
   },
   {
-    "revision": "908d762cb4bed095d2eaf4583414f5ed",
+    "revision": "e16dcccaa0e928427557916a02127e0e",
     "url": "/movie-app/index.html"
   },
   {
