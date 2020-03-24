@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Movies from '../screens/Movies';
 import Tv from '../screens/Tv';
@@ -6,24 +6,32 @@ import Search from '../screens/Search';
 import Favs from '../screens/Favs';
 
 const Tabs = createMaterialBottomTabNavigator();
+const getHeaderName = route => {
+  console.log(route.state.routeNames[route.state.index] || 'Movies');
+  return route?.state?.routeNames[route.state.index] || 'Movies';
+};
 
-export default ({ route }) => {
-  console.log(route);
+export default ({ navigation, route }) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: getHeaderName(route)
+    });
+  }, [route]);
+
   return (
     <Tabs.Navigator
-      initialRouteName="Moives"
       activeColor="#f0edf6"
       inactiveColor="#3e2465"
       barStyle={{ backgroundColor: '#694fad' }}
     >
       <Tabs.Screen
-        options={{ tabBarLabel: 'Movies', tabBarColor: '#2e2465' }}
+        options={{ tabBarColor: '#2e2465' }}
         name="Movies"
         component={Movies}
       />
       <Tabs.Screen
-        options={{ tabBarLabel: 'TV', tabBarColor: '#4e2465' }}
-        name="Tv"
+        options={{ tabBarColor: '#4e2465' }}
+        name="TV"
         component={Tv}
       />
       <Tabs.Screen
@@ -33,7 +41,7 @@ export default ({ route }) => {
       />
       <Tabs.Screen
         options={{ tabBarColor: '#6e2465' }}
-        name="Favs"
+        name="Favorites"
         component={Favs}
       />
     </Tabs.Navigator>
